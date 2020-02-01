@@ -1,0 +1,20 @@
+<div ng-controller="memberctrl">
+    <form>
+        <table class="table table-bordered">
+            <thead>
+                <th style="width:5%;">ID</th>
+                <th style="width:10%;">User</th>
+                <th style="width:15%;">Email</th>
+                <th style="width:15%;">Mobile Number</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{$index+1}}</td>
+                <td><span name="name" >{{ename}}</span></td>
+                <td><span name="name" >{{eemail}}</span></td>
+                <td><span name="mobilenumber">{{emobilenumber}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
