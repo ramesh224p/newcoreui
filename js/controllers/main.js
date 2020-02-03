@@ -215,7 +215,7 @@ function trafficDemoCtrl($scope){
 
   $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Thursday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   $scope.series = ['Current', 'Previous', 'BEP'];
-  $scope.data = [ data1, data2, data3];
+  $scope.data = [ data1];
   $scope.colors = [{
     backgroundColor: convertHex(brandInfo,10),
     borderColor: brandInfo,

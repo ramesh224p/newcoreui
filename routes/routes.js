@@ -13,25 +13,25 @@ angular
       label: 'Icons'
     }
   })
-  .state('app.icons.flags', {
-    url: '/flags',
-    templateUrl: 'views/icons/flags.html',
+  .state('app.icons.Facial', {
+    url: '/Facial',
+    templateUrl: 'views/icons/Facial.html',
     ncyBreadcrumb: {
-      label: 'Flags'
+      label: 'Facial'
     }
   })
-  .state('app.icons.fontawesome', {
-    url: '/font-awesome',
-    templateUrl: 'views/icons/font-awesome.html',
+  .state('app.icons.Manicure', {
+    url: '/Manicure',
+    templateUrl: 'views/icons/Manicure.html',
     ncyBreadcrumb: {
-      label: 'Font Awesome'
+      label: 'Manicure'
     }
   })
-  .state('app.icons.simplelineicons', {
-    url: '/simple-line-icons',
-    templateUrl: 'views/icons/simple-line-icons.html',
+  .state('app.icons.Pedicure', {
+    url: '/Pedicure',
+    templateUrl: 'views/icons/Pedicure.html',
     ncyBreadcrumb: {
-      label: 'Simple Line Icons'
+      label: 'Pedicure'
     }
   })
   .state('app.components', {
@@ -42,25 +42,25 @@ angular
       label: 'Components'
     }
   })
-  .state('app.components.buttons', {
-    url: '/buttons',
-    templateUrl: 'views/components/buttons.html',
+  .state('app.components.Cardio', {
+    url: '/Cardio',
+    templateUrl: 'views/components/Cardio.html',
     ncyBreadcrumb: {
-      label: 'Buttons'
+      label: 'Cardio'
     }
   })
-  .state('app.components.social-buttons', {
-    url: '/social-buttons',
-    templateUrl: 'views/components/social-buttons.html',
+  .state('app.components.Strength', {
+    url: '/Strength',
+    templateUrl: 'views/components/Strength.html',
     ncyBreadcrumb: {
-      label: 'Social Buttons'
+      label: 'Strength'
     }
   })
-  .state('app.components.cards', {
-    url: '/cards',
-    templateUrl: 'views/components/cards.html',
+  .state('app.components.Both', {
+    url: '/Both',
+    templateUrl: 'views/components/Both.html',
     ncyBreadcrumb: {
-      label: 'Cards'
+      label: 'Both'
     }
   })
   .state('app.components.forms', {
@@ -82,21 +82,6 @@ angular
     templateUrl: 'views/components/tables.html',
     ncyBreadcrumb: {
       label: 'Tables'
-    }
-  })
-  .state('app.widgets', {
-    url: '/widgets',
-    templateUrl: 'views/widgets.html',
-    ncyBreadcrumb: {
-      label: 'Widgets'
-    },
-    resolve: {
-      loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-        // you can lazy load controllers
-        return $ocLazyLoad.load({
-          files: ['js/controllers/widgets.js']
-        });
-      }]
     }
   })
   .state('app.users', {
@@ -133,23 +118,23 @@ angular
     ncyBreadcrumb: {
       label: 'Charts'
     },
-    resolve: {
+    //resolve: {
       // Plugins loaded before
       // loadPlugin: ['$ocLazyLoad', function ($ocLazyLoad) {
-      //     return $ocLazyLoad.load([
-      //         {
-      //             serial: true,
-      //             files: ['js/libs/Chart.min.js', 'js/libs/angular-chart.min.js']
-      //         }
-      //     ]);
-      // }],
+        //   return $ocLazyLoad.load([
+          //     {
+             //      serial: true,
+           //        files: ['js/libs/Chart.min.js', 'js/libs/angular-chart.min.js']
+         //      }
+       //    ]);
+     // }],
       loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
         // you can lazy load files for an existing module
         return $ocLazyLoad.load({
           files: ['js/controllers/charts.js']
         });
       }]
-    }
+  //  }
   })
 
   $ocLazyLoadProvider.config({
