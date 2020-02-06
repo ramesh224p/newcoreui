@@ -56,32 +56,11 @@ angular
       label: 'Strength'
     }
   })
-  .state('app.components.Both', {
+  .state('app.gym.Both', {
     url: '/Both',
     templateUrl: 'views/components/Both.html',
     ncyBreadcrumb: {
       label: 'Both'
-    }
-  })
-  .state('app.components.forms', {
-    url: '/forms',
-    templateUrl: 'views/components/forms.html',
-    ncyBreadcrumb: {
-      label: 'Forms'
-    }
-  })
-  .state('app.components.switches', {
-    url: '/switches',
-    templateUrl: 'views/components/switches.html',
-    ncyBreadcrumb: {
-      label: 'Switches'
-    }
-  })
-  .state('app.components.tables', {
-    url: '/tables',
-    templateUrl: 'views/components/tables.html',
-    ncyBreadcrumb: {
-      label: 'Tables'
     }
   })
   .state('app.users', {

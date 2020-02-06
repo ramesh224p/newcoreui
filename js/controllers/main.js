@@ -30,7 +30,6 @@ app.controller('cardChartCtrl1',['$scope', '$http', '$localStorage', function($s
       console.log(response);
       $localStorage.testm=response.data.data;
       $scope.some=response.data.data;
-      console.log($localStorage.testm.length);
       $scope.totalM=$localStorage.testm.length;
       console.log($scope.totalM);
   })

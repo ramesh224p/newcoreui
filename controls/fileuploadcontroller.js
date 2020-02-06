@@ -31,7 +31,17 @@ app.directive('fileModel', ['$parse', function ($parse) {
        var file = $scope.myFile;
        console.log('file is ' );
        console.dir(file);
-       var uploadUrl = "";
+       var uploadUrl = "http://localhost:3004/uploads";
        fileUpload.uploadFileToUrl(file, uploadUrl);
     };
  }]);
+
+
+ function encodeImageFileAsURL(element) {
+   var file = element.files[0];
+   var reader = new FileReader();
+   reader.onloadend = function() {
+     console.log('RESULT', reader.result)
+   }
+   reader.readAsDataURL(file);
+ }
