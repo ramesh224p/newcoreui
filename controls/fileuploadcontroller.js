@@ -31,7 +31,7 @@ app.directive('fileModel', ['$parse', function ($parse) {
        var file = $scope.myFile;
        console.log('file is ' );
        console.dir(file);
-       var uploadUrl = "http://localhost:3004/uploads";
+       var uploadUrl = "http://localhost:3004/v1/uploads";
        fileUpload.uploadFileToUrl(file, uploadUrl);
     };
  }]);
