@@ -7,7 +7,7 @@
          <div class="col-md-12">
          <div class="table-responsive">
          
-          <div>
+          <div style="float:right">
             <input type="date" id="datec"  ng-model="startDate">
             <input type="date" id="datec"   ng-model="endDate">
             <button for="datec" ng-click="search(startDate,endDate)"> Go</button>
@@ -17,22 +17,23 @@
               <form id="empform" ng-submit="submitMember()">
                   <table id="mytable" class="table table-bordered">
                       <thead>
-                         <th style="width:5%;">ID</th>
+                          <th style="width:5%;">ID</th>
                           <th style="width:15%;">Email</th>
                           <th style="width:10%;">Name</th>
                           <th style="width:10%;">Address</th>
                           <th style="width:15%;">Mobile Number</th>
+                          <th style="width:15%;">Date</th>
                           <th> Edit / Delete </th>
                          </thead>
                     <tbody>
                         <tr ng-repeat="emp in some">
                            <td>{{$index+1}}</td>
                            
-                           <td><span name="email"   >{{emp.email}}</span> </td>
+                            <td><span name="email"   >{{emp.email}}</span> </td>
                             <td><span name="name11" >{{emp.name11}}</span></td>
                             <td><span name="address" >{{emp.address}}</span></td>
                             <td><span name="mobilenumber" >{{emp.mobilenumber}}</span></td>
-                  
+                            <td><span name="date_created"   >{{emp.date_created | date}}</span> </td>
                                  <td><div class="buttons">
                                       <button class="btn btn-primary" ng-click="editMember($index, emp)" data-toggle="modal" data-target="#myModal">Edit</button>
                                       <button class="btn btn-danger" ng-confirm="are you sure" ng-click="deleteMember($index, emp.id)">Delete</button>

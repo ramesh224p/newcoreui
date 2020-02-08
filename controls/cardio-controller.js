@@ -1,8 +1,7 @@
-app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', function($scope, $http, $localStorage, $window){
+app.controller('cardioctrl',['$scope', '$http', '$localStorage', '$window', function($scope, $http, $localStorage, $window){
     $scope.ready = $localStorage.userData;    
-    
 
-        $http.get('http://localhost:3004/v1/users/').then(function(response){
+        $http.get('http://localhost:3004/v1/cardio/').then(function(response){
             console.log(response.data.data);
             $scope.some=response.data.data;
             $scope.some.forEach(function(id){
@@ -18,7 +17,7 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
 	$scope.search = function(startDate,endDate){
 		console.log(startDate,endDate)
 		console.log(moment(startDate).format("YYYY/MM/DD"))
-		$http.get('http://localhost:3004/v1/users?startdate='+moment(startDate).format("YYYY/MM/DD")+'&enddate='+moment(endDate).format("YYYY/MM/DD")).then(function(response){
+		$http.get('http://localhost:3004/v1/cardio?startdate='+moment(startDate).format("YYYY/MM/DD")+'&enddate='+moment(endDate).format("YYYY/MM/DD")).then(function(response){
 		    console.log(response.data.data)
             $scope.some=response.data.data;
             $scope.some.forEach(function(id){
@@ -48,7 +47,7 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
         emp.address = val3;
         emp.mobilenumber = val4;
 
-        $http.post('http://localhost:3004/v1/users/', emp).then(function (data, status, headers, config) { 
+        $http.post('http://localhost:3004/v1/cardio/', emp).then(function (data, status, headers, config) { 
             console.log(data) 
             if(data.status==true){
                 $scope.some.push(emp)
@@ -62,6 +61,7 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
         $scope.name11=emp.name11;
         $scope.address=emp.address;
         $scope.mobilenumber=emp.mobilenumber;
+        $scope.status=emp.status;
     }
 
     $scope.edit=function(val1, val2, val3, val4){
@@ -69,11 +69,11 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
         editobj.email=val1;
         editobj.name11=val2;
         editobj.address=val3;
-        editobj.mobilenumber=val4;
+        editobj.status=val4;
         console.log($scope._id)
 
 
-        $http.put('http://localhost:3004/v1/users/'+$scope._id, editobj).then(function (data, status, headers, config) { 
+        $http.put('http://localhost:3004/v1/cardio/'+$scope._id, editobj).then(function (data, status, headers, config) { 
 
         })
     }
@@ -81,10 +81,20 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
     $scope.deleteMember=function(index,id){
         if ($window.confirm("Do you want to delete: " )) {
             $scope.some.splice(index,1);
-            $http.delete('http://localhost:3004/v1/users/'+id).then(function(response){
+            $http.delete('http://localhost:3004/v1/cardio/'+id).then(function(response){
                 console.log(response);
             }); 
         }
     }
+
+    $scope.statuszero=function(){
+        $scope.status=0;
+        $http.get('http://localhost:3004/v1/cardio?zerostatus='+$scope.status).then(function(response){
+            console.log(response.data.data);
+            $scope.some = response.data.data;
+            console.log($scope.some)
+        })
+    }
+
 }])
 
