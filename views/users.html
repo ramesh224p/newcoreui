@@ -2,9 +2,9 @@
         <h1 align="center" style="color:black">Members Table Edit </h1>
         <div class="container">
          
-        <!-- <div class="row">
-         <button type="button"  class="btn btn-info" data-ng-click="openAddMemberPopup()">Add Member</button>
-         <div class="col-md-12"> -->
+        <div class="row">
+         <button type="button"  class="btn btn-info" ng-click="openAddMemberPopup()" data-toggle="modal" data-target="#myModal">Add Member</button>
+         <div class="col-md-12">
          <div class="table-responsive">
          
           <div>
@@ -34,7 +34,7 @@
                             <td><span name="mobilenumber" >{{emp.mobilenumber}}</span></td>
                   
                                  <td><div class="buttons">
-                                      <button class="btn btn-primary" ng-click="editMember($index, emp)">Edit</button>
+                                      <button class="btn btn-primary" ng-click="editMember($index, emp)" data-toggle="modal" data-target="#myModal">Edit</button>
                                       <button class="btn btn-danger" ng-confirm="are you sure" ng-click="deleteMember($index, emp.id)">Delete</button>
                                  </div> 
                              </td>
@@ -49,9 +49,10 @@
               <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">
+                  <form>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Add Details</h4>
-              <table id="mytable" class="table table-bordered">
+                  <table id="mytable" class="table table-bordered">
                           
                           
                            email:&nbsp&nbsp&nbsp <input name="email" ng-model="email">  <br> 
@@ -64,7 +65,8 @@
                    </br>
                    <button ng-click="submitAddMemberPopup(email,name11,address,mobilenumber)" ng-if="!_id" >Add</button>
                      <button ng-click="edit(email,name11,address,mobilenumber)" ng-if="_id">Edit</button>
-                   </table>
+                  </table>
+                </form>
                 </div>
             </div>
           

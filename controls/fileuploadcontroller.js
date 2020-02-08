@@ -1,3 +1,4 @@
+
 app.directive('fileModel', ['$parse', function ($parse) {
     return {
        restrict: 'A',
@@ -14,7 +15,7 @@ app.directive('fileModel', ['$parse', function ($parse) {
     };
  }]);
  app.service('fileUpload', ['$http', function ($http) {
-    this.uploadFileToUrl = function(file, uploadUrl) {
+    this.uploadFileToUrl = function(uploadUrl, file) {
        var fd = new FormData();
        fd.append('file', file);
     
@@ -25,15 +26,16 @@ app.directive('fileModel', ['$parse', function ($parse) {
        
     }
  }]);
+ 
  app.controller('fileCtrl', ['$scope', 'fileUpload', function($scope, fileUpload) {
     $scope.uploadFile = function() {
        
        var file = $scope.myFile;
        console.log('file is ' );
        console.dir(file);
-       var uploadUrl = "http://localhost:3004/v1/uploads";
-       fileUpload.uploadFileToUrl(file, uploadUrl);
-    };
+       var uploadUrl = "http://localhost:3004/v1/baseupload";
+       fileUpload.uploadFileToUrl(uploadUrl, imageURL);
+   };
  }]);
 
 
@@ -41,7 +43,12 @@ app.directive('fileModel', ['$parse', function ($parse) {
    var file = element.files[0];
    var reader = new FileReader();
    reader.onloadend = function() {
-     console.log('RESULT', reader.result)
+     //console.log('RESULT', reader.result)
+	 imageURL = reader.result;
+	 console.log(imageURL)
    }
    reader.readAsDataURL(file);
  }
+
+
+ 
