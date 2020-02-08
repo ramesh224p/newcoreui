@@ -21,24 +21,14 @@ var app=angular
   "chart.js"
 ])
 
-app.constant('foo',{
-  message :'http://localhost:3004/v1/login'
+app.constant('URL',{
+  API :'http://localhost:3004/v1/',
+  froentend:"http://127.0.0.1:8080/#!/"
 })
 
-app.provider('bar',['foo',function(foo){
-  this.data={
-    message: foo.message+''
-  };
-  
-  this.$get=function(){
-    return this.data;
-  };
-
-}])
 
 
-.config(['barProvider', 'cfpLoadingBarProvider', function(barProvider , cfpLoadingBarProvider) {
-  console.log(barProvider.data.message);
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = false;
   cfpLoadingBarProvider.latencyThreshold = 1;
 }])
