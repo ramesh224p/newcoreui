@@ -27,8 +27,8 @@
                          </thead>
                     <tbody>
                         <tr ng-repeat="emp in some">
+
                            <td>{{$index+1}}</td>
-                           
                             <td><span name="email"   >{{emp.email}}</span> </td>
                             <td><span name="name11" >{{emp.name11}}</span></td>
                             <td><span name="address" >{{emp.address}}</span></td>
@@ -64,7 +64,9 @@
                    </br>
                            mobilenumber:&nbsp <input name="mobilenumber" ng-model="mobilenumber"> <br>
                    </br>
-                   <button ng-click="submitAddMemberPopup(email,name11,address,mobilenumber)" ng-if="!_id" >Add</button>
+                            password:&nbsp <input name="password" ng-model="password"> <br>
+                   </br>
+                   <button ng-click="submitAddMemberPopup(email,name11,address,mobilenumber,password)" ng-if="!_id" >Add</button>
                      <button ng-click="edit(email,name11,address,mobilenumber)" ng-if="_id">Edit</button>
                   </table>
                 </form>

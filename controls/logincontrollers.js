@@ -13,6 +13,13 @@ app.controller("myctrl",['$scope', '$state', '$http', '$localStorage','URL', fun
             }
         })
     }
+    $scope.register=function(){
+        window.location.href=URL.froentend+"register";
+    }
+    $scope.forgotpass=function(){
+        window.location.href=URL.froentend+"forgotpass";
+        console.log("came forgot")
+    }
 }]);
 
 

@@ -161,6 +161,10 @@ angular
     url: '/register',
     templateUrl: 'views/pages/register.html'
   })
+  .state('forgotpass', {
+    url: '/forgotpass',
+    templateUrl: 'views/pages/forgotpass.html'
+  })
   .state('appSimple.404', {
     url: '/404',
     templateUrl: 'views/pages/404.html'

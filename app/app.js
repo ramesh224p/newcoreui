@@ -26,12 +26,11 @@ app.constant('URL',{
   froentend:"http://127.0.0.1:8080/#!/"
 })
 
-
-
 .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
   cfpLoadingBarProvider.includeSpinner = false;
   cfpLoadingBarProvider.latencyThreshold = 1;
 }])
+
 .run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
   $rootScope.$on('$stateChangeSuccess',function(){
     document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -39,5 +38,3 @@ app.constant('URL',{
   $rootScope.$state = $state;
   return $rootScope.$stateParams = $stateParams;
 }]);
-
-

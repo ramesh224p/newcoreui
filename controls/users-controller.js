@@ -39,14 +39,16 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
         $scope.name11="";
         $scope.address="";
         $scope.mobilenumber="";
+        $scope.password="";
     }
 
-    $scope.submitAddMemberPopup=function(val1, val2, val3, val4){
+    $scope.submitAddMemberPopup=function(val1, val2, val3, val4, val5){
         var emp = {};
         emp.email = val1;
         emp.name11 = val2;
         emp.address = val3;
         emp.mobilenumber = val4;
+        emp.password= md5(val5);
 
         $http.post('http://localhost:3004/v1/users/', emp).then(function (data, status, headers, config) { 
             console.log(data) 
