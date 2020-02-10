@@ -2,6 +2,9 @@ app.controller('searchctrl',['$http', '$scope', '$window', 'URL', function($http
     $scope.searchid=function(){
         console.log(URL.API)
         $http.get(URL.API+'forgotpass?email='+$scope.emailid).then(function(response){
+            $(window).on('load', function() {
+                $('#loading').hide();
+             });
             console.log(response.data.data[0]);
             if(response.data.status==true){
                 // var pass={};

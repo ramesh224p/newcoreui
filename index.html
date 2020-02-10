@@ -92,8 +92,7 @@
 
   <script src="custom/bootstrap.min.js"></script>
   <script src="controls/logincontrollers.js"></script>
-  <script src="controls/users-controller.js"></script>
-  <script src="controls/cardio-controller.js"></script>
+  <script src="controls/totalusers-controller.js"></script>
   <script src="controls/playcontroller.js"></script>
   <script src="controls/totalcontroller.js"></script>
   <script src="controls/membercontroller.js"></script>
@@ -119,8 +118,14 @@
 
   <script src="custom/loading-bar.min.js"></script>
   <script src="custom/ocLazyLoad.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
  
-
+  <script>
+    $(window).on('load', function() {
+      $('#loading').hide();
+    });
+    </script>
 
 </body>
 </html>

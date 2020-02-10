@@ -1,86 +1,234 @@
-<div ng-controller="cardioctrl">
-    <h1 align="center" style="color:black">Members Table Edit </h1>
-    <div class="container">
-     
-    <div class="row">
-     <button type="button"  class="btn btn-info" ng-click="openAddMemberPopup()" data-toggle="modal" data-target="#myModal">Add Member</button>
-     <div class="col-md-12">
-     <div class="table-responsive" ng-model="zerostatus">
-        <div style="float:left">
-            <button ng-click="statuszero()">Inactive</button>
-         </div>
-      <div style="float:right">
-        <input type="date" id="datec"  ng-model="startDate">
-        <input type="date" id="datec"   ng-model="endDate">
-        <button for="datec" ng-click="search(startDate,endDate)"> Go</button>
-      </div>
-          <form id="empform" ng-submit="submitMember()">
-              <table id="mytable" class="table table-bordered">
-                    <thead>
-                        <th style="width:5%;">ID</th>
-                        <th style="width:15%;">Email</th>
-                        <th style="width:10%;">Name</th>
-                        <th style="width:10%;">Address</th>
-                        <th style="width:15%;">Date Created</th>
-                        <th style="width:15%;">Date Modified</th>
-                        <th> Edit / Delete </th>
-                    </thead>
-                <tbody>
-                    <tr ng-repeat="emp in some">
-                       <td>{{$index+1}}</td>
-                       
-                        <td><span name="email"   >{{emp.email}}</span> </td>
-                        <td><span name="name11" >{{emp.name11}}</span></td>
-                        <td><span name="address" >{{emp.address}}</span></td>
-                        <td><span name="mobilenumber" >{{emp.date_created | date}}</span></td>
-                        <td><span name="date_created"   >{{emp.date_modified | date}}</span> </td>
-                             <td><div class="buttons">
-                                  <button class="btn btn-primary" ng-click="editMember($index, emp)" data-toggle="modal" data-target="#myModal">Edit</button>
-                                  <button class="btn btn-danger" ng-confirm="are you sure" ng-click="deleteMember($index, emp.id)">Delete</button>
-                             </div> 
-                         </td>
-                      </tr>
-             </tbody>
-         </table>
-     </form>
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-        
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <form>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Add Details</h4>
-              <table id="mytable" class="table table-bordered">
-                      
-                      
-                       email:&nbsp&nbsp&nbsp <input name="email" ng-model="email">  <br> 
-               </br>
-                       name:&nbsp&nbsp&nbsp <input name="name11" ng-model="name11"><br>
-               </br>
-                       address:&nbsp&nbsp <input name="address" ng-model="address"> <br>
-               </br>
-                       datecreated:&nbsp <input name="mobilenumber" ng-model="mobilenumber"> <br>
-               </br>
-                        status:&nbsp <input name="status" ng-model="status"> <br>
-            </br>
-               <button ng-click="submitAddMemberPopup(email,name11,address,mobilenumber)" ng-if="!_id" >Add</button>
-                 <button ng-click="edit(email,name11,address,mobilenumber,status)" ng-if="_id">Edit</button>
-              </table>
-            </form>
-            </div>
-        </div>
-      
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-    </div> 
+<div>
+    <div calss="main">
+        <form>
+        <h1> 7 Best Home Cardio Exercises</h1>
+        <p> 
+            Doing your cardio exercising at home is an attractive option, 
+            offering convenience as well as a way to save money and time. Luckily, 
+            a good cardio workout doesn't have to require a ton of space or fancy equipment, 
+            and with a little creativity, you can put together a fitness routine with a wide range of 
+            effective cardio exercises that will tone muscle, burn calories, and help you lose weight. 
+            Below are some home cardio exercises you can do anytime, anywhere
+        </p>
+        </form>
     </div>
+    <div>
+        <h2>Jumping Jacks </h2>
+        <a> <img class="image1" width="600px" src="/assets/img/cardio/jumpingjacks.jpg"></a>
+        <p>
+            <strong>What:</strong> Repeatedly jumping the feet wide while circling the arms overhead, then back again
+        </p>
+        <p>
+            <strong>Why:</strong> Jumping jacks burn about 100 calories in 10 minutes and no special equipment or skills are needed.
+        </p>
+        <p>
+            <strong> Requirements:</strong> A good pair of shoes, a conditioned heart
+        </p>
+        <p>
+            <strong> Precautions:</strong> Jumping jacks are high impact, which may tax the joints. They may also remind you of elementary or high school gym class traumas.
+        </p>
+        <p> <strong> Best Ways to Use Jumping Jacks in a Workout:</strong>
+        <ol>
+            <strong>In a Cardio Circuit:</strong> Use jumping jacks in a circuit, doing them for 30-60 seconds and alternating them with other cardio exercises such as marching, jogging, jumping rope, etc. Try a different variation of jumping jacks each time, repeating the circuit for 10-30 minutes.
+        </ol>
+        <ol>
+            <strong>In a Strength Circuit:</strong> Alternate 30-60 seconds of jumping jacks with strength exercises such as squats, lunges, pushups, and dips for 10-30 minutes.
+        </ol>
+        <ol>
+            <strong> In Your Regular Workout:</strong> Add a high-intensity blast to your regular cardio or strength workouts by adding a minute or more of jumping jacks throughout the workout or at the end.
+        </ol>
+        </p>
     </div>
+    <div>
+        <h2> Jump Rope</h2>
+        <a><img src="/assets/img/cardio/JumpRope.jpg" width="600px"></a>
+        <p>
+            <strong>What:</strong> Turning a rope with handles repeatedly while jumping over it and (optional) chanting rhymes            
+        </p>
+        <p>
+            <strong> Why:</strong> It's great cardio, burning about 220 calories in 20 minutes. Jump ropes are inexpensive, travel well, require no special skills, and can be used anywhere you have space.
+        </p>
+        <p>
+            <strong>Requirements:</strong> A jump rope, a good pair of shoes, patience, and practice            
+        </p>
+        <p>
+            <strong>Precautions:</strong> Jumping rope is high impact and requires practice. It looks easy, but beginners may have all the grace of a pigeon-toed elephant and trip often. For the best results, turn the rope with the wrists, not the arms, and land softly. Only jump high enough to clear the rope.
+        </p>
+        <p><strong> Best Ways to Use Jumping Rope in a Workout:</strong>
+            <ol>
+                <strong>In a Beginner Circuit:</strong> Alternating 10-30 seconds of jumping with marching in place for 5-10 circuits. Gradually work up to longer jumping sessions
+            </ol>
+            <ol>
+                <strong>In a Cardio Circuit:</strong> Alternate 30-60 seconds of jumping with other cardio exercises such as marching, jogging, jumping jacks, etc.
+            </ol>
+            <ol>
+                <strong>In a Strength Circuit:</strong> Alternate 30-60 seconds of jumping with strength exercises, such as squats, lunges, push-ups, and dips.
+            </ol>
+        </p>
     </div>
+    <div>
+        <h2> Jump Rope  </h2>
+        <a><img src="/assets/img/cardio/JumpRope.jpg" width="600px"></a>
+        <p>
+            <strong>What:</strong> Turning a rope with handles repeatedly while jumping over it and (optional) chanting rhymes
+        </p>
+        <p>
+            <strong>Why: </strong>It's great cardio, burning about 220 calories in 20 minutes. Jump ropes are inexpensive, travel well, require no special skills, and can be used anywhere you have space
+        </p>
+        <p>
+            <strong>Requirements: </strong> A jump rope, a good pair of shoes, patience, and practice
+        </p>
+        <p>
+            <strong>Precautions: </strong> Jumping rope is high impact and requires practice. It looks easy, but beginners may have all the grace of a pigeon-toed elephant and trip often. For the best results, turn the rope with the wrists, not the arms, and land softly. Only jump high enough to clear the rope.
+        </p>
+        <p><strong> Best Ways to Use Jumping Rope in a Workout:</strong>
+            <ol>
+                <strong>In a Beginner Circuit: </strong> Alternating 10-30 seconds of jumping with marching in place for 5-10 circuits. Gradually work up to longer jumping sessions
+            </ol>
+            <ol>
+                <strong>In a Cardio Circuit: </strong> Alternate 30-60 seconds of jumping with other cardio exercises such as marching, jogging, jumping jacks, etc.
+            </ol>
+            <ol>
+                <strong>In a Strength Circuit: </strong> Alternate 30-60 seconds of jumping with strength exercises, such as squats, lunges, push-ups, and dips. 
+            </ol>
+        </p>
     </div>
+    <div>
+        <h2> Jogging in Place  </h2>
+        <a><img src="/assets/img/cardio/JogginginPlace.jpg" width="600px"></a>
+        <p>
+            <strong>What: </strong>Jogging in a stationary position
+        </p>
+        <p>
+            <strong>Why: </strong>It's simple, accessible, gets the heart rate up, and is a great way to warm up for more intense exercise.
+        </p>
+        <p>
+            <strong>Requirements: </strong> A good pair of shoes
+        </p>
+        <p>
+            <strong> Precautions:</strong>It's high impact, which may tax the joints, and it can be boring. Because there's no forward motion, it isn't as intense as jogging outside.
+        </p>
+        <p><strong>Best Ways to Use Jogging in Place in a Workout: </strong>
+            <ol>
+                <strong>As a Warm Up: </strong>Start by marching in place, then slowly change that to a jog to prepare your body for more strenuous exercise.
+            </ol>
+            <ol>
+                <strong>In a Cardio Circuit: </strong>Alternate jogging in place with other cardio exercises, such as marching, jogging, jumping rope, step touches, etc. Do each for 30-60 seconds, repeating the circuit for 10-30 minutes.
+            </ol>
+            <ol>
+                <strong>In a Strength Circuit:  </strong> Alternate 30-60 seconds of jogging in place with strength exercises, such as squats, lunges, push-ups, and dips for 10-30 minutes.
+            </ol>
+        </p>
     </div>
+    
+    <div>
+        <h2> Burpees  </h2>
+        <a><img src="/assets/img/cardio/Burpees.jpg" width="600px"></a>
+        <p>
+            <strong>What: </strong>Squatting to the floor, jumping the feet to a plank position, jumping back in, and standing up
+        </p>
+        <p>
+            <strong>Why: </strong>It's a killer cardio exercise, burning 100 or more calories in 10 minutes (if you can stomach 10 minutes of this exercise).
+        </p>
+        <p>
+            <strong>Requirements: </strong>  A good pair of shoes, experience with high impact exercise, an iron will
+        </p>
+        <p>
+            <strong>Precautions: </strong>They're really, really hard.
+        </p>
+        <p><strong>Best Ways to Use Burpees in a Workout: </strong>
+            <ol>
+                <strong>Sparingly: </strong>As mentioned above, they're really, really hard, so pace yourself
+            </ol>
+            <ol>
+                <strong>In a Cardio Circuit: </strong>Incorporate 30-60 seconds of burpees every 3-4 minutes of a cardio circuit that includes other exercises, such as marching, jogging, jumping rope, step touches, etc.
+            </ol>
+            <ol>
+                <strong>In High-Intensity Interval Training: </strong>Do 30-60 seconds of burpees, rest for 30-60 seconds, and repeat for 10 or more minutes. You can also use burpees in a Tabata workout.
+            </ol>
+        </p>
     </div>
-  </div>      
+    <div>
+        <h2> Mountain Climbers  </h2>
+        <a><img src="/assets/img/cardio/MountainClimbers.jpg" width="600px"></a>
+        <p>
+            <strong> What:</strong>Running the knees in and out from a push-up position.
+        </p>
+        <p>
+            <strong>Why: </strong>Mountain climbers raise the heart rate while building strength and endurance in the core. No special skills are needed.
+        </p>
+        <p>
+            <strong>Requirements: </strong> Strong wrists
+        </p>
+        <p>
+            <strong>Precautions: </strong>This exercise can tax the wrists, arms, and shoulders, as well as the core.
+        </p>
+        <p><strong>Best Ways to Use Mountain Climbers in a Workout: </strong>
+            <ol>
+                <strong>In a Cardio Circuit: </strong>Add mountain climbers to your cardio circuit, doing them for 30-60 seconds each time.
+            </ol>
+            <ol>
+                <strong>In a Strength Workout: </strong>Combine mountain climbers with push-ups or planks to add intensity.
+            </ol>
+            <ol>
+                <strong>In Combinations: </strong>For high intensity, do a series of mountain climbers with burpees, alternate 10 push-ups with 10 mountain climbers, or add them to bear crawls.
+            </ol>
+        </p>
+    </div>
+    
+    <div>
+        <h2> Bear Crawls  </h2>
+        <a><img src="/assets/img/cardio/BearCrawls.jpg" width="600px"></a>
+        <p>
+            <strong> What:</strong>Squatting to the floor, walking the hands out to do a push-up, walking the hands back. and standing up...like a bear
+        </p>
+        <p>
+            <strong>Why: </strong>They get the heart rate way up while building strength and endurance.
+        </p>
+        <p>
+            <strong>Requirements: </strong> Experience with high-intensity exercise
+        </p>
+        <p>
+            <strong>Precautions </strong>This move is tougher than it looks and the intensity accumulates quickly.
+        </p>
+        <p><strong> Best Ways to Use Bear Crawls in a Workout:</strong>
+            <ol>
+                <strong>In a Cardio/Strength Workout: </strong> Incorporate 30-60 seconds of bear crawls into your regular cardio workout or in a cardio circuit with other exercises such as marching, jogging, jumping rope, burpees, etc.
+            </ol>
+            <ol>
+                <strong> In an Upper Body Workout:</strong>Add 30-60 seconds of bear crawls for every 3-5 upper body exercises such as push-ups, chest presses, or dumbbell rows to increase intensity, power, and strength.
+            </ol>
+            <ol>
+                <strong>In High-Intensity Interval Training:  </strong>Do 30-60 seconds of bear crawls, rest for 30-60 seconds, and repeat for 10 or more minutes, or alternate bear crawls with other high-intensity exercises such as burpees or squat jumps. You can also use bear crawls in a Tabata workout.
+            </ol>
+        </p>
+    </div>
+    
+    <div>
+        <h2> Staircase Exercise  </h2>
+        <a><img src="/assets/img/cardio/StaircaseExercise.jpg" width="600px"></a>
+        <p>
+            <strong> What:</strong>Using a staircase for everything from cardio to strength training
+        </p>
+        <p>
+            <strong>Why: </strong>Walking stairs is an excellent cardio workout and you can use the steps for a variety of other exercises.
+        </p>
+        <p>
+            <strong>Requirements:  </strong> A staircase with at least one step
+        </p>
+        <p>
+            <strong>Precautions: </strong>Watch for cats, dogs, toys, and children. Make sure there's a handrail for safety.
+        </p>
+        <p><strong>Best Ways to Incorporate Stairs Into Your Workout: </strong>
+            <ol>
+                <strong> In a Cardio Circuit:</strong>If you have a longer staircase (more than six stairs), work it into a cardio circuit: Alternate 1-2 laps up and down with other cardio exercises, such as jumping rope, jogging in place, jumping jacks, etc.
+            </ol>
+            <ol>
+                <strong> In High-Intensity Interval Training:</strong>Run or walk up the stairs as fast as you can and walk back down to recover, repeating for 10 or more minutes. You can also use just one step: Jump onto the step with both feet and step down, or stand sideways with one foot on the step and jump, turning 180 degrees, and landing with the other foot on the step.
+            </ol>
+            <ol>
+                <strong>In Strength Workouts: </strong>Use one step for push-ups, lunges, dips, squats, step ups, and more.
+            </ol>
+        </p>
+    </div>
+</div>

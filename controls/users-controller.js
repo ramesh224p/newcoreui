@@ -3,6 +3,9 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
     
 
         $http.get('http://localhost:3004/v1/users/').then(function(response){
+            $(window).on('load', function() {
+                $('#loading').hide();
+             });
             console.log(response.data.data);
             $scope.some=response.data.data;
             $scope.some.forEach(function(id){
@@ -19,6 +22,9 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
 		console.log(startDate,endDate)
 		console.log(moment(startDate).format("YYYY/MM/DD"))
 		$http.get('http://localhost:3004/v1/users?startdate='+moment(startDate).format("YYYY/MM/DD")+'&enddate='+moment(endDate).format("YYYY/MM/DD")).then(function(response){
+            $(window).on('load', function() {
+                $('#loading').hide();
+             });
 		    console.log(response.data.data)
             $scope.some=response.data.data;
             $scope.some.forEach(function(id){
@@ -48,9 +54,12 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
         emp.name11 = val2;
         emp.address = val3;
         emp.mobilenumber = val4;
-        emp.password= md5(val5);
+        emp.password=val5;
 
-        $http.post('http://localhost:3004/v1/users/', emp).then(function (data, status, headers, config) { 
+        $http.post('http://localhost:3004/v1/users/', emp).then(function (data, status, headers, config) {
+            $(window).on('load', function() {
+                $('#loading').hide();
+             }); 
             console.log(data) 
             if(data.status==true){
                 $scope.some.push(emp)
@@ -76,7 +85,9 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
 
 
         $http.put('http://localhost:3004/v1/users/'+$scope._id, editobj).then(function (data, status, headers, config) { 
-
+            $(window).on('load', function() {
+                $('#loading').hide();
+             });
         })
     }
 
@@ -84,6 +95,9 @@ app.controller('userctrl',['$scope', '$http', '$localStorage', '$window', functi
         if ($window.confirm("Do you want to delete: " )) {
             $scope.some.splice(index,1);
             $http.delete('http://localhost:3004/v1/users/'+id).then(function(response){
+                $(window).on('load', function() {
+                    $('#loading').hide();
+                 });
                 console.log(response);
             }); 
         }

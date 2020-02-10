@@ -13,11 +13,11 @@ angular
       label: 'Icons'
     }
   })
-  .state('app.icons.Facial', {
-    url: '/Facial',
-    templateUrl: 'views/icons/Facial.html',
+  .state('app.icons.cosmetics', {
+    url: '/cosmetics',
+    templateUrl: 'views/icons/cosmetics.html',
     ncyBreadcrumb: {
-      label: 'Facial'
+      label: 'cosmetics'
     }
   })
   .state('app.icons.Manicure', {
@@ -42,11 +42,11 @@ angular
       label: 'Components'
     }
   })
-  .state('app.components.Cardio', {
-    url: '/Cardio',
-    templateUrl: 'views/components/Cardio.html',
+  .state('app.components.totalusers', {
+    url: '/totalusers',
+    templateUrl: 'views/components/totalusers.html',
     ncyBreadcrumb: {
-      label: 'Cardio'
+      label: 'totalusers'
     }
   })
   .state('app.components.Strength', {
@@ -56,39 +56,11 @@ angular
       label: 'Strength'
     }
   })
-  .state('app.gym.Both', {
-    url: '/Both',
-    templateUrl: 'views/components/Both.html',
+  .state('app.components.Cardio', {
+    url: '/cardio',
+    templateUrl: 'views/components/cardio.html',
     ncyBreadcrumb: {
-      label: 'Both'
-    }
-  })
-  .state('app.users', {
-    url: '/users',
-    templateUrl: 'views/users.html',
-    ncyBreadcrumb: {
-      label: 'Users'
-    }
-  })
-  .state('app.member', {
-    url: '/member',
-    templateUrl: 'views/member.html',
-    ncyBreadcrumb: {
-      label: 'member'
-    }
-  })
-  .state('app.play', {
-    url: '/play',
-    templateUrl: 'views/play.html',
-    ncyBreadcrumb: {
-      label: 'play'
-    }
-  })
-  .state('app.total', {
-    url: '/total',
-    templateUrl: 'views/total.html',
-    ncyBreadcrumb: {
-      label: 'total'
+      label: 'cardio'
     }
   })
   .state('app.charts', {

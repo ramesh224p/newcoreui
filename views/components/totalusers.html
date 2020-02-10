@@ -1,0 +1,86 @@
+<div ng-controller="totalusersctrl">
+    <h1 align="center" style="color:black">Members Table Edit </h1>
+    <div class="container">
+     
+    <div class="row">
+     <button type="button"  class="btn btn-info" ng-click="openAddMemberPopup()" data-toggle="modal" data-target="#myModal">Add Member</button>
+     <div class="col-md-12">
+     <div class="table-responsive" ng-model="zerostatus">
+        <div style="float:left">
+            <button ng-click="statuszero()">Inactive</button>
+         </div>
+      <div style="float:right">
+        <input type="date" id="datec"  ng-model="startDate">
+        <input type="date" id="datec"   ng-model="endDate">
+        <button for="datec" ng-click="search(startDate,endDate)"> Go</button>
+      </div>
+          <form id="empform" ng-submit="submitMember()">
+              <table id="mytable" class="table table-bordered">
+                    <thead>
+                        <th style="width:5%;">ID</th>
+                        <th style="width:15%;">Email</th>
+                        <th style="width:10%;">Name</th>
+                        <th style="width:10%;">Address</th>
+                        <th style="width:15%;">Date Created</th>
+                        <th style="width:15%;">Date Modified</th>
+                        <th> Edit / Delete </th>
+                    </thead>
+                <tbody>
+                    <tr ng-repeat="emp in some">
+                       <td>{{$index+1}}</td>
+                       
+                        <td><span name="email"   >{{emp.email}}</span> </td>
+                        <td><span name="name11" >{{emp.name11}}</span></td>
+                        <td><span name="address" >{{emp.address}}</span></td>
+                        <td><span name="mobilenumber" >{{emp.date_created | date}}</span></td>
+                        <td><span name="date_created"   >{{emp.date_modified | date}}</span> </td>
+                             <td><div class="buttons">
+                                  <button class="btn btn-primary" ng-click="editMember($index, emp)" data-toggle="modal" data-target="#myModal">Edit</button>
+                                  <button class="btn btn-danger" ng-confirm="are you sure" ng-click="deleteMember($index, emp.id)">Delete</button>
+                             </div> 
+                         </td>
+                      </tr>
+             </tbody>
+         </table>
+     </form>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <form>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Add Details</h4>
+              <table id="mytable" class="table table-bordered">
+                      
+                      
+                       email:&nbsp&nbsp&nbsp <input name="email" ng-model="email">  <br> 
+               </br>
+                       name:&nbsp&nbsp&nbsp <input name="name11" ng-model="name11"><br>
+               </br>
+                       address:&nbsp&nbsp <input name="address" ng-model="address"> <br>
+               </br>
+                       datecreated:&nbsp <input name="mobilenumber" ng-model="mobilenumber"> <br>
+               </br>
+                        status:&nbsp <input name="status" ng-model="status"> <br>
+            </br>
+               <button ng-click="submitAddMemberPopup(email,name11,address,mobilenumber)" ng-if="!_id" >Add</button>
+                 <button ng-click="edit(email,name11,address,mobilenumber,status)" ng-if="_id">Edit</button>
+              </table>
+            </form>
+            </div>
+        </div>
+      
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+    </div> 
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>      

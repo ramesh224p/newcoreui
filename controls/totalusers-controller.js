@@ -1,7 +1,10 @@
-app.controller('cardioctrl',['$scope', '$http', '$localStorage', '$window', function($scope, $http, $localStorage, $window){
+app.controller('totalusersctrl',['$scope', '$http', '$localStorage', '$window', function($scope, $http, $localStorage, $window){
     $scope.ready = $localStorage.userData;    
 
-        $http.get('http://localhost:3004/v1/cardio/').then(function(response){
+        $http.get('http://localhost:3004/v1/totalusers/').then(function(response){
+            $(window).on('load', function() {
+                $('#loading').hide();
+             });
             console.log(response.data.data);
             $scope.some=response.data.data;
             $scope.some.forEach(function(id){
@@ -17,8 +20,11 @@ app.controller('cardioctrl',['$scope', '$http', '$localStorage', '$window', func
 	$scope.search = function(startDate,endDate){
 		console.log(startDate,endDate)
 		console.log(moment(startDate).format("YYYY/MM/DD"))
-		$http.get('http://localhost:3004/v1/cardio?startdate='+moment(startDate).format("YYYY/MM/DD")+'&enddate='+moment(endDate).format("YYYY/MM/DD")).then(function(response){
-		    console.log(response.data.data)
+		$http.get('http://localhost:3004/v1/totalusers?startdate='+moment(startDate).format("YYYY/MM/DD")+'&enddate='+moment(endDate).format("YYYY/MM/DD")).then(function(response){
+            $(window).on('load', function() {
+                $('#loading').hide();
+             });
+            console.log(response.data.data)
             $scope.some=response.data.data;
             $scope.some.forEach(function(id){
                 console.log(id);
@@ -47,8 +53,11 @@ app.controller('cardioctrl',['$scope', '$http', '$localStorage', '$window', func
         emp.address = val3;
         emp.mobilenumber = val4;
 
-        $http.post('http://localhost:3004/v1/cardio/', emp).then(function (data, status, headers, config) { 
-            console.log(data) 
+        $http.post('http://localhost:3004/v1/totalusers/', emp).then(function (data, status, headers, config) { 
+            $(window).on('load', function() {
+                $('#loading').hide();
+             });    
+        console.log(data) 
             if(data.status==true){
                 $scope.some.push(emp)
             }
@@ -73,15 +82,20 @@ app.controller('cardioctrl',['$scope', '$http', '$localStorage', '$window', func
         console.log($scope._id)
 
 
-        $http.put('http://localhost:3004/v1/cardio/'+$scope._id, editobj).then(function (data, status, headers, config) { 
-
+        $http.put('http://localhost:3004/v1/totalusers/'+$scope._id, editobj).then(function (data, status, headers, config) { 
+            $(window).on('load', function() {
+                $('#loading').hide();
+             });
         })
     }
 
     $scope.deleteMember=function(index,id){
         if ($window.confirm("Do you want to delete: " )) {
             $scope.some.splice(index,1);
-            $http.delete('http://localhost:3004/v1/cardio/'+id).then(function(response){
+            $http.delete('http://localhost:3004/v1/totalusers/'+id).then(function(response){
+                $(window).on('load', function() {
+                    $('#loading').hide();
+                 });
                 console.log(response);
             }); 
         }
@@ -89,7 +103,10 @@ app.controller('cardioctrl',['$scope', '$http', '$localStorage', '$window', func
 
     $scope.statuszero=function(){
         $scope.status=0;
-        $http.get('http://localhost:3004/v1/cardio?zerostatus='+$scope.status).then(function(response){
+        $http.get('http://localhost:3004/v1/totalusers?zerostatus='+$scope.status).then(function(response){
+            $(window).on('load', function() {
+                $('#loading').hide();
+             });
             console.log(response.data.data);
             $scope.some = response.data.data;
             console.log($scope.some)
