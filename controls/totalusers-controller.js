@@ -1,10 +1,8 @@
 app.controller('totalusersctrl',['$scope', '$http', '$localStorage', '$window', function($scope, $http, $localStorage, $window){
     $scope.ready = $localStorage.userData;    
-
+    $scope.loading=true;
         $http.get('http://localhost:3004/v1/totalusers/').then(function(response){
-            $(window).on('load', function() {
-                $('#loading').hide();
-             });
+            $scope.loading=false;
             console.log(response.data.data);
             $scope.some=response.data.data;
             $scope.some.forEach(function(id){
@@ -19,11 +17,10 @@ app.controller('totalusersctrl',['$scope', '$http', '$localStorage', '$window', 
 	
 	$scope.search = function(startDate,endDate){
 		console.log(startDate,endDate)
-		console.log(moment(startDate).format("YYYY/MM/DD"))
+        console.log(moment(startDate).format("YYYY/MM/DD"))
+        $scope.loading=true;
 		$http.get('http://localhost:3004/v1/totalusers?startdate='+moment(startDate).format("YYYY/MM/DD")+'&enddate='+moment(endDate).format("YYYY/MM/DD")).then(function(response){
-            $(window).on('load', function() {
-                $('#loading').hide();
-             });
+            $scope.loading=false;
             console.log(response.data.data)
             $scope.some=response.data.data;
             $scope.some.forEach(function(id){
@@ -52,11 +49,9 @@ app.controller('totalusersctrl',['$scope', '$http', '$localStorage', '$window', 
         emp.name11 = val2;
         emp.address = val3;
         emp.mobilenumber = val4;
-
+        $scope.loading=true;
         $http.post('http://localhost:3004/v1/totalusers/', emp).then(function (data, status, headers, config) { 
-            $(window).on('load', function() {
-                $('#loading').hide();
-             });    
+            $scope.loading=false;    
         console.log(data) 
             if(data.status==true){
                 $scope.some.push(emp)
@@ -78,24 +73,21 @@ app.controller('totalusersctrl',['$scope', '$http', '$localStorage', '$window', 
         editobj.email=val1;
         editobj.name11=val2;
         editobj.address=val3;
-        editobj.status=val4;
+        editobj.mobilenumber=val4;
         console.log($scope._id)
 
-
+        $scope.loading=true;
         $http.put('http://localhost:3004/v1/totalusers/'+$scope._id, editobj).then(function (data, status, headers, config) { 
-            $(window).on('load', function() {
-                $('#loading').hide();
-             });
+            $scope.loading=false;
         })
     }
 
     $scope.deleteMember=function(index,id){
         if ($window.confirm("Do you want to delete: " )) {
             $scope.some.splice(index,1);
+            $scope.loading=true;
             $http.delete('http://localhost:3004/v1/totalusers/'+id).then(function(response){
-                $(window).on('load', function() {
-                    $('#loading').hide();
-                 });
+                $scope.loading=false;
                 console.log(response);
             }); 
         }
@@ -103,10 +95,9 @@ app.controller('totalusersctrl',['$scope', '$http', '$localStorage', '$window', 
 
     $scope.statuszero=function(){
         $scope.status=0;
+        $scope.loading=true;
         $http.get('http://localhost:3004/v1/totalusers?zerostatus='+$scope.status).then(function(response){
-            $(window).on('load', function() {
-                $('#loading').hide();
-             });
+            $scope.loading=false;
             console.log(response.data.data);
             $scope.some = response.data.data;
             console.log($scope.some)

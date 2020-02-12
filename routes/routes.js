@@ -5,62 +5,69 @@ angular
   $urlRouterProvider.when('', '/login');
 
   $stateProvider
-  .state('app.icons', {
-    url: "/icons",
+  .state('app.bueaty', {
+    url: "/bueaty",
     abstract: true,
     template: '<ui-view></ui-view>',
     ncyBreadcrumb: {
-      label: 'Icons'
+      label: 'bueaty'
     }
   })
-  .state('app.icons.cosmetics', {
+  .state('app.bueaty.cosmetics', {
     url: '/cosmetics',
-    templateUrl: 'views/icons/cosmetics.html',
+    templateUrl: 'views/bueaty/cosmetics.html',
     ncyBreadcrumb: {
       label: 'cosmetics'
     }
   })
-  .state('app.icons.Manicure', {
+  .state('app.bueaty.Manicure', {
     url: '/Manicure',
-    templateUrl: 'views/icons/Manicure.html',
+    templateUrl: 'views/bueaty/Manicure.html',
     ncyBreadcrumb: {
       label: 'Manicure'
     }
   })
-  .state('app.icons.Pedicure', {
+  .state('app.bueaty.Pedicure', {
     url: '/Pedicure',
-    templateUrl: 'views/icons/Pedicure.html',
+    templateUrl: 'views/bueaty/Pedicure.html',
     ncyBreadcrumb: {
       label: 'Pedicure'
     }
   })
-  .state('app.components', {
-    url: "/components",
+  .state('app.gym', {
+    url: "/gym",
     abstract: true,
     template: '<ui-view></ui-view>',
     ncyBreadcrumb: {
-      label: 'Components'
+      label: 'gym'
     }
   })
-  .state('app.components.totalusers', {
+  .state('app.gym.totalusers', {
     url: '/totalusers',
-    templateUrl: 'views/components/totalusers.html',
+    templateUrl: 'views/gym/totalusers.html',
     ncyBreadcrumb: {
       label: 'totalusers'
     }
   })
-  .state('app.components.Strength', {
+  .state('app.gym.Strength', {
     url: '/Strength',
-    templateUrl: 'views/components/Strength.html',
+    templateUrl: 'views/gym/Strength.html',
     ncyBreadcrumb: {
       label: 'Strength'
     }
   })
-  .state('app.components.Cardio', {
+  .state('app.gym.Cardio', {
     url: '/cardio',
-    templateUrl: 'views/components/cardio.html',
+    templateUrl: 'views/gym/cardio.html',
     ncyBreadcrumb: {
       label: 'cardio'
+    }
+  })
+  .state('app.gym.uploadpics', {
+    url: '/uploadpics',
+    templateUrl: 'views/gym/uploadpics.html',
+    ncyBreadcrumb: {
+      label: 'uploadpics'
     }
   })
   .state('app.charts', {
