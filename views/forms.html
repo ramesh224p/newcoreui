@@ -74,7 +74,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
                 </div>
-                <input type="text" class="form-control" ng-model="ccn" placeholder="0000 0000 0000 0000" ui-mask="9999 9999 9999 9999">
+                <input type="text" class="form-control" ng-model="ccn" placeholder="0000 0000 0000 0000"
+                  ui-mask="9999 9999 9999 9999">
               </div>
               <small class="text-muted">ex. 9999 9999 9999 9999</small>
             </fieldset>
@@ -98,7 +99,8 @@
           <fieldset class="form-group">
             <label>Select</label>
             <ui-select ng-model="country.selected" theme="bootstrap">
-              <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
+              <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}
+              </ui-select-match>
               <ui-select-choices repeat="country in countries | filter: $select.search">
                 <span ng-bind-html="country.name | highlight: $select.search"></span>
                 <small ng-bind-html="country.code | highlight: $select.search"></small>
@@ -134,7 +136,8 @@
             <label>Array of objects with single property binding</label>
             <ui-select multiple ng-model="multipleDemo.selectedPeopleSimple" theme="select2" ng-disabled="disabled">
               <ui-select-match placeholder="Select person...">{{$item.name}} &lt;{{$item.email}}&gt;</ui-select-match>
-              <ui-select-choices repeat="person.email as person in people | propsFilter: {name: $select.search, age: $select.search}">
+              <ui-select-choices
+                repeat="person.email as person in people | propsFilter: {name: $select.search, age: $select.search}">
                 <div ng-bind-html="person.name | highlight: $select.search"></div>
                 <small>
                   email: {{person.email}} age:
@@ -146,9 +149,11 @@
           </fieldset>
           <fieldset class="form-group">
             <label>Array of objects (with groupBy)</label>
-            <ui-select multiple ng-model="multipleDemo.selectedPeopleWithGroupBy" theme="select2" ng-disabled="disabled">
+            <ui-select multiple ng-model="multipleDemo.selectedPeopleWithGroupBy" theme="select2"
+              ng-disabled="disabled">
               <ui-select-match placeholder="Select person...">{{$item.name}} &lt;{{$item.email}}&gt;</ui-select-match>
-              <ui-select-choices group-by="someGroupFn" repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
+              <ui-select-choices group-by="someGroupFn"
+                repeat="person in people | propsFilter: {name: $select.search, age: $select.search}">
                 <div ng-bind-html="person.name | highlight: $select.search"></div>
                 <small>
                   email: {{person.email}} age:

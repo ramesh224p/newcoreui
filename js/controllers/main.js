@@ -1,67 +1,67 @@
 //main.js
 angular
-.module('app')
-.controller('cardChartCtrl4', cardChartCtrl4)
-.controller('trafficDemoCtrl', trafficDemoCtrl)
-.controller('socialBoxCtrl', socialBoxCtrl)
-.controller('sparklineChartCtrl', sparklineChartCtrl)
-.controller('barChartCtrl', barChartCtrl)
-.controller('horizontalBarsCtrl', horizontalBarsCtrl)
-.controller('horizontalBarsType2Ctrl', horizontalBarsType2Ctrl)
-.controller('usersTableCtrl', usersTableCtrl);
+  .module('app')
+  .controller('cardChartCtrl4', cardChartCtrl4)
+  .controller('trafficDemoCtrl', trafficDemoCtrl)
+  .controller('socialBoxCtrl', socialBoxCtrl)
+  .controller('sparklineChartCtrl', sparklineChartCtrl)
+  .controller('barChartCtrl', barChartCtrl)
+  .controller('horizontalBarsCtrl', horizontalBarsCtrl)
+  .controller('horizontalBarsType2Ctrl', horizontalBarsType2Ctrl)
+  .controller('usersTableCtrl', usersTableCtrl);
 
 //convert Hex to RGBA
-function convertHex(hex,opacity){
-  hex = hex.replace('#','');
-  r = parseInt(hex.substring(0,2), 16);
-  g = parseInt(hex.substring(2,4), 16);
-  b = parseInt(hex.substring(4,6), 16);
+function convertHex(hex, opacity) {
+  hex = hex.replace('#', '');
+  r = parseInt(hex.substring(0, 2), 16);
+  g = parseInt(hex.substring(2, 4), 16);
+  b = parseInt(hex.substring(4, 6), 16);
 
-  result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
+  result = 'rgba(' + r + ',' + g + ',' + b + ',' + opacity / 100 + ')';
   return result;
 }
 
 
-app.controller('cardChartCtrl1',['$scope', '$http', '$localStorage','$timeout', function($scope, $http, $localStorage, $timeout){
-  $scope.loading=true;
-  $scope.ready=$localStorage.userData;
-  $http.get('http://localhost:3004/v1/dashboard/').then(function(response){
-      $scope.loading=false;       
-      console.log(response);
-      $localStorage.testm=response.data.data;
-      $scope.some=response.data.data;
-      $scope.totalM=$localStorage.testm.length;
-      console.log($scope.totalM);
+app.controller('cardChartCtrl1', ['$scope', '$http', '$localStorage', '$timeout', function ($scope, $http, $localStorage, $timeout) {
+  $scope.loading = true;
+  $scope.ready = $localStorage.userData;
+  $http.get('http://localhost:3004/v1/dashboard/').then(function (response) {
+    $scope.loading = false;
+    console.log(response);
+    $localStorage.testm = response.data.data;
+    $scope.some = response.data.data;
+    $scope.totalM = $localStorage.testm.length;
+    console.log($scope.totalM);
   })
 }])
 
-app.controller('cardChartCtrl2',['$scope', '$http', '$localStorage','$timeout', function($scope, $http, $localStorage, $timeout){
-  $scope.loading=true;
-  $http.get('http://localhost:3004/v1/strengthtotal/').then(function(response){
-      $scope.loading=false;       
-      console.log(response);
-      $localStorage.gymmembers=response.data.data;
-      $scope.some=response.data.data;
-      $scope.gymmembers=$localStorage.gymmembers.length;
-      console.log($scope.gymmembers);
+app.controller('cardChartCtrl2', ['$scope', '$http', '$localStorage', '$timeout', function ($scope, $http, $localStorage, $timeout) {
+  $scope.loading = true;
+  $http.get('http://localhost:3004/v1/strengthtotal/').then(function (response) {
+    $scope.loading = false;
+    console.log(response);
+    $localStorage.gymmembers = response.data.data;
+    $scope.some = response.data.data;
+    $scope.gymmembers = $localStorage.gymmembers.length;
+    console.log($scope.gymmembers);
   })
 }])
 
 
-app.controller('cardChartCtrl3',['$scope', '$http', '$localStorage','$timeout', function($scope, $http, $localStorage, $timeout){
-  $scope.loading=true;
-  $http.get('http://localhost:3004/v1/pedicuretotal/').then(function(response){
-      $scope.loading=false;       
-      console.log(response);
-      $localStorage.bpmembers=response.data.data;
-      $scope.some=response.data.data;
-      $scope.bpmembers=$localStorage.bpmembers.length;
-      console.log($scope.bpmembers);
+app.controller('cardChartCtrl3', ['$scope', '$http', '$localStorage', '$timeout', function ($scope, $http, $localStorage, $timeout) {
+  $scope.loading = true;
+  $http.get('http://localhost:3004/v1/pedicuretotal/').then(function (response) {
+    $scope.loading = false;
+    console.log(response);
+    $localStorage.bpmembers = response.data.data;
+    $scope.some = response.data.data;
+    $scope.bpmembers = $localStorage.bpmembers.length;
+    console.log($scope.bpmembers);
   })
 }])
 
-function random(min,max) {
-  return Math.floor(Math.random()*(max-min+1)+min);
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 cardChartCtrl4.$inject = ['$scope'];
@@ -73,7 +73,7 @@ function cardChartCtrl4($scope) {
   //
   for (var i = 2000; i <= 2000 + elements; i++) {
     labels.push(i);
-    data.push(random(40,100));
+    data.push(random(40, 100));
   }
 
   $scope.labels = labels;
@@ -99,10 +99,10 @@ function cardChartCtrl4($scope) {
 }
 
 trafficDemoCtrl.$inject = ['$scope'];
-function trafficDemoCtrl($scope){
+function trafficDemoCtrl($scope) {
 
-  function random(min,max) {
-    return Math.floor(Math.random()*(max-min+1)+min);
+  function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   var elements = 27;
@@ -111,16 +111,16 @@ function trafficDemoCtrl($scope){
   var data3 = [];
 
   for (var i = 0; i <= elements; i++) {
-    data1.push(random(50,200));
-    data2.push(random(80,100));
+    data1.push(random(50, 200));
+    data2.push(random(80, 100));
     data3.push(65);
   }
 
   $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Thursday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   $scope.series = ['Current', 'Previous', 'BEP'];
-  $scope.data = [ data1];
+  $scope.data = [data1];
   $scope.colors = [{
-    backgroundColor: convertHex(brandInfo,10),
+    backgroundColor: convertHex(brandInfo, 10),
     borderColor: brandInfo,
     pointHoverBackgroundColor: '#fff'
 
@@ -128,7 +128,7 @@ function trafficDemoCtrl($scope){
     backgroundColor: 'transparent',
     borderColor: brandSuccess,
     pointHoverBackgroundColor: '#fff'
-  },{
+  }, {
     backgroundColor: 'transparent',
     borderColor: brandDanger,
     pointHoverBackgroundColor: '#fff',
@@ -144,7 +144,7 @@ function trafficDemoCtrl($scope){
           drawOnChartArea: false,
         },
         ticks: {
-          callback: function(value) {
+          callback: function (value) {
             return value.charAt(0);
           }
         }
@@ -188,7 +188,7 @@ function dateRangeCtrl($scope) {
   };
 
   //Watch for date changes
-  $scope.$watch('date', function(newDate) {
+  $scope.$watch('date', function (newDate) {
     //console.log('New date set: ', newDate);
   }, false);
 
@@ -200,7 +200,7 @@ function dateRangeCtrl($scope) {
 socialBoxCtrl.$inject = ['$scope'];
 function socialBoxCtrl($scope) {
 
-  $scope.labels = ['January','February','March','April','May','June','July'];
+  $scope.labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   $scope.data1 = [
     [65, 59, 84, 84, 51, 55, 40]
   ];
@@ -223,10 +223,10 @@ function socialBoxCtrl($scope) {
     maintainAspectRatio: false,
     scales: {
       xAxes: [{
-        display:false,
+        display: false,
       }],
       yAxes: [{
-        display:false,
+        display: false,
       }]
     },
     elements: {
@@ -242,7 +242,7 @@ function socialBoxCtrl($scope) {
 
 sparklineChartCtrl.$inject = ['$scope'];
 function sparklineChartCtrl($scope) {
-  $scope.labels = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   $scope.data1 = [
     [65, 59, 84, 84, 51, 55, 40]
   ];
@@ -282,10 +282,10 @@ function sparklineChartCtrl($scope) {
   $scope.options = {
     scales: {
       xAxes: [{
-        display:false,
+        display: false,
       }],
       yAxes: [{
-        display:false,
+        display: false,
       }]
     },
     elements: {
@@ -304,25 +304,25 @@ function horizontalBarsCtrl($scope) {
 
   $scope.data = [
     {
-      day: 'Monday',    new: 34, recurring: 78
+      day: 'Monday', new: 34, recurring: 78
     },
     {
-      day: 'Tuesday',   new: 56, recurring: 94
+      day: 'Tuesday', new: 56, recurring: 94
     },
     {
       day: 'Wednesday', new: 12, recurring: 67
     },
     {
-      day: 'Thursday',  new: 43, recurring: 91
+      day: 'Thursday', new: 43, recurring: 91
     },
     {
-      day: 'Friday',    new: 22, recurring: 73
+      day: 'Friday', new: 22, recurring: 73
     },
     {
-      day: 'Saturday',  new: 53, recurring: 82
+      day: 'Saturday', new: 53, recurring: 82
     },
     {
-      day: 'Sunday',    new: 9,  recurring: 69
+      day: 'Sunday', new: 9, recurring: 69
     }
   ];
 }
@@ -523,8 +523,8 @@ function clientsTableCtrl($scope, $timeout) {
   ]
 }
 
-function random(min,max) {
-  return Math.floor(Math.random()*(max-min+1)+min);
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 barChartCtrl.$inject = ['$scope'];
@@ -538,9 +538,9 @@ function barChartCtrl($scope) {
 
   for (var i = 0; i <= elements; i++) {
     labels.push('1');
-    data.push(random(40,100));
-    data1.push(random(20,100));
-    data2.push(random(60,100));
+    data.push(random(40, 100));
+    data1.push(random(20, 100));
+    data2.push(random(60, 100));
   }
 
   $scope.labels = labels;
@@ -553,7 +553,7 @@ function barChartCtrl($scope) {
     showScale: false,
     scaleFontSize: 0,
     scaleShowGridLines: false,
-    barStrokeWidth : 0,
+    barStrokeWidth: 0,
     barBackground: 'rgba(221, 224, 229, 1)',
 
     // pointDot :false,
@@ -561,8 +561,8 @@ function barChartCtrl($scope) {
   };
 
   $scope.colors = [{
-    backgroundColor : brandInfo,
-    borderColor : 'rgba(0,0,0,1)',
+    backgroundColor: brandInfo,
+    borderColor: 'rgba(0,0,0,1)',
     highlightFill: '#818a91',
     pointborderColor: '#000'
   }];

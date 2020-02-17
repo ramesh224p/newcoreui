@@ -1,7 +1,9 @@
 <div>
     <div ng-controller = "fileCtrl">
-                <input type ="file" name="imgUploader" file-model = "myFile" onchange="encodeImageFileAsURL(this)" />
-                <button ng-click = "uploadFile()" >upload me</button>
-         
+        <div id="loading" ng-if="loading">
+            <img id="loading-image" src="../assets/img/loading.gif" alt="Loading..." />
+        </div>
+        <input type ="file" name="imgUploader" file-model = "myFile" onchange="encodeImageFileAsURL(this)" />
+        <button ng-click = "uploadFile()" >upload me</button>     
     </div>
 </div>

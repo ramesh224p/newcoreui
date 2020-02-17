@@ -1,12 +1,12 @@
 //chart.js
 angular
-.module('app')
-.controller('LineCtrl', LineCtrl)
-.controller('BarCtrl', BarCtrl)
-.controller('DoughnutCtrl', DoughnutCtrl)
-.controller('RadarCtrl', RadarCtrl)
-.controller('PieCtrl', PieCtrl)
-.controller('PolarAreaCtrl', PolarAreaCtrl)
+  .module('app')
+  .controller('LineCtrl', LineCtrl)
+  .controller('BarCtrl', BarCtrl)
+  .controller('DoughnutCtrl', DoughnutCtrl)
+  .controller('RadarCtrl', RadarCtrl)
+  .controller('PieCtrl', PieCtrl)
+  .controller('PolarAreaCtrl', PolarAreaCtrl)
 
 LineCtrl.$inject = ['$scope'];
 function LineCtrl($scope) {
@@ -37,7 +37,7 @@ function DoughnutCtrl($scope) {
 
 RadarCtrl.$inject = ['$scope'];
 function RadarCtrl($scope) {
-  $scope.labels =['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
+  $scope.labels = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
 
   $scope.data = [
     [65, 59, 90, 81, 56, 55, 40],

@@ -1,12 +1,12 @@
-app.controller('searchctrl',['$http', '$scope', '$window', 'URL', function($http, $scope, $window, URL){
-    $scope.searchid=function(){
+app.controller('searchctrl', ['$http', '$scope', '$window', 'URL', function ($http, $scope, $window, URL) {
+    $scope.searchid = function () {
         console.log(URL.API)
-        $http.get(URL.API+'forgotpass?email='+$scope.emailid).then(function(response){
-            $(window).on('load', function() {
+        $http.get(URL.API + 'forgotpass?email=' + $scope.emailid).then(function (response) {
+            $(window).on('load', function () {
                 $('#loading').hide();
-             });
+            });
             console.log(response.data.data[0]);
-            if(response.data.status==true){
+            if (response.data.status == true) {
                 // var pass={};
                 // pass.newpass='123456pass';
                 // pass.id=response.data.data[0].id;
@@ -15,7 +15,7 @@ app.controller('searchctrl',['$http', '$scope', '$window', 'URL', function($http
                 //     console.log("sdf");
                 //     console.log(data);
                 console.log("ok");
-            }else{
+            } else {
                 console.log('error');
             }
         })
