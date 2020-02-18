@@ -7,14 +7,19 @@ app.controller("myctrl", ['$scope', '$state', '$http', '$localStorage', 'URL', f
         emp.password = $scope.password;
         $http.post(URL.API + 'login/', emp).then(function (response) {
             $scope.loading = false;
-            console.log(response.data.val);
-            if (response.data.status == true) {
+            sessionStorage.setItem('jwt', token);
+            if ($window.sessionStorage.token) {
+                xhr.setRequestHeader("Authorization", $window.sessionStorage.token);          
+            
+                console.log(response.data.val);
+                if (response.data.status == true) {
                 $localStorage.value = response.data.val;
                 console.log($localStorage.value);
                 $scope.loading = true;
                 window.location.href = URL.froentend + "dashboard";
                 $scope.loading = false
-            }
+                }
+            }  
         })
     }
     $scope.register = function () {
