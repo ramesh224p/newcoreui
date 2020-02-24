@@ -1,3 +1,4 @@
+<div>
 <header class="app-header navbar">
   <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">
     <span class="navbar-toggler-icon"></span>
@@ -16,14 +17,15 @@
         aria-expanded="false">
         <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
       </a>
-      <div class="dropdown-menu dropdown-menu-right">
+      <div class="dropdown-menu dropdown-menu-right" ng-controller="logoutctrl">
 
         <div class="dropdown-header text-center">
           <strong>Account</strong>
         </div>
 
-        <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+        <button class="dropdown-item" href="#" ng-click="logout()"><i class="fa fa-lock"></i> Logout</button>
       </div>
     </li>
   </ul>
 </header>
+</div>

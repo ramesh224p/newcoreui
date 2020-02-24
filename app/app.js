@@ -18,7 +18,9 @@ var app = angular
     'ncy-angular-breadcrumb',
     'angular-loading-bar',
     "ngStorage",
-    "chart.js"
+    "chart.js",
+    "angular-storage",
+    "ngRoute"
   ])
 
 app.constant('URL', {
@@ -32,9 +34,17 @@ app.constant('URL', {
   }])
 
   .run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+    $rootScope.$on('$stateChangeError', function(e, toState, toParams, fromState, fromParams, error){
+
+      if(error === "Not Authorized"){
+        console.log("*****************")
+        window.location.href='http://127.0.0.1:8080/#!/login';
+      }
+  })
     $rootScope.$on('$stateChangeSuccess', function () {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
     $rootScope.$state = $state;
     return $rootScope.$stateParams = $stateParams;
-  }]);
+  }])
+

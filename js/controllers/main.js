@@ -1,4 +1,35 @@
 //main.js
+// app.service('APIInterceptor', function($rootScope, URL) {
+//   console.log("came to acess token")
+//   var service = this;
+//   if(JSON.parse(window.localStorage.getItem('ngStorage-value'))){
+//       service.request = function(config) {
+//           console.log("config")
+//       //var currentUser = UserService.getCurrentUser(),
+//       var access_token=JSON.parse(window.localStorage.getItem('ngStorage-value').token);
+//           //access_token = currentUser ? currentUser.access_token : null;
+//       console.log("config")
+//       console.log("err",access_token);
+//       if (access_token) {
+//           config.headers.authorization = access_token;
+//       }
+//           console.log(config);
+//           return config; 
+//       }
+//       service.responseError = function(response, config) {
+//         console.log(response)
+//       if (response.status === 401) {
+//           $rootScope.$broadcast('unauthorized');
+//           window.location.href='http://127.0.0.1:8080/#!/login';
+//       }
+//           return response || $q.when(response);
+//       }
+//   }
+//   // else{
+//   //     window.location.href="http://127.0.0.1:8080/#!/login"
+//   // }
+// })
+
 angular
   .module('app')
   .controller('cardChartCtrl4', cardChartCtrl4)
@@ -9,6 +40,16 @@ angular
   .controller('horizontalBarsCtrl', horizontalBarsCtrl)
   .controller('horizontalBarsType2Ctrl', horizontalBarsType2Ctrl)
   .controller('usersTableCtrl', usersTableCtrl);
+
+
+  app.controller('logoutctrl', ['$rootScope', '$state', '$scope', 'URL', function($rootScope, $state, $scope, URL){
+    $scope.logout=function(){
+      console.log("logout came")
+      
+      localStorage.clear();
+      window.location.href = URL.froentend + "login";
+    }
+  }])
 
 //convert Hex to RGBA
 function convertHex(hex, opacity) {
@@ -21,17 +62,17 @@ function convertHex(hex, opacity) {
   return result;
 }
 
-
 app.controller('cardChartCtrl1', ['$scope', '$http', '$localStorage', '$timeout', function ($scope, $http, $localStorage, $timeout) {
   $scope.loading = true;
-  $scope.ready = $localStorage.userData;
+  // $scope.ready = $localStorage.userData;
   $http.get('http://localhost:3004/v1/dashboard/').then(function (response) {
     $scope.loading = false;
+    console.log("users")
     console.log(response);
     $localStorage.testm = response.data.data;
-    $scope.some = response.data.data;
+  //  $scope.totalM = response.data.data.length;
     $scope.totalM = $localStorage.testm.length;
-    console.log($scope.totalM);
+    //console.log($scope.totalM);
   })
 }])
 
@@ -40,9 +81,9 @@ app.controller('cardChartCtrl2', ['$scope', '$http', '$localStorage', '$timeout'
   $http.get('http://localhost:3004/v1/strengthtotal/').then(function (response) {
     $scope.loading = false;
     console.log(response);
-    $localStorage.gymmembers = response.data.data;
-    $scope.some = response.data.data;
-    $scope.gymmembers = $localStorage.gymmembers.length;
+    //$localStorage.gymmembers = response.data.data;
+    $scope.gymmembers = response.data.data.length;
+    //$scope.gymmembers = $localStorage.gymmembers.length;
     console.log($scope.gymmembers);
   })
 }])
@@ -53,9 +94,9 @@ app.controller('cardChartCtrl3', ['$scope', '$http', '$localStorage', '$timeout'
   $http.get('http://localhost:3004/v1/pedicuretotal/').then(function (response) {
     $scope.loading = false;
     console.log(response);
-    $localStorage.bpmembers = response.data.data;
-    $scope.some = response.data.data;
-    $scope.bpmembers = $localStorage.bpmembers.length;
+    //$localStorage.bpmembers = response.data.data;
+    $scope.bpmembers = response.data.data.length;
+    //$scope.bpmembers = $localStorage.bpmembers.length;
     console.log($scope.bpmembers);
   })
 }])

@@ -1,9 +1,9 @@
 angular
   .module('app')
-  .config(['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
+  .config(['URL','$stateProvider', '$urlRouterProvider', '$httpProvider', '$ocLazyLoadProvider', '$breadcrumbProvider', function (URL, $stateProvider, $urlRouterProvider, $httpProvider, $ocLazyLoadProvider, $breadcrumbProvider) {
 
     $urlRouterProvider.when('', '/login');
-
+    // $httpProvider.interceptors.push('APIInterceptor');
     $stateProvider
       .state('app.bueaty', {
         url: "/bueaty",
@@ -105,6 +105,7 @@ angular
       includeAbstract: true,
       template: '<li class="breadcrumb-item" ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract"><a ng-switch-when="false" href="{{step.ncyBreadcrumbLink}}">{{step.ncyBreadcrumbLabel}}</a><span ng-switch-when="true">{{step.ncyBreadcrumbLabel}}</span></li>'
     });
+    
 
     $stateProvider
       .state('app', {
